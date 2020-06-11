@@ -3,7 +3,7 @@
 <title>Algortimos punto a punto</title>
 <link rel="stylesheet" href="style.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/ajax-uploads.js"></script>
+<script src="js/ajax-upload.js"></script>
 </head>
 <body>
     <div class="img-upload">
@@ -23,6 +23,9 @@
                 <option value="add">Add</option>
                 <option value="subtract">Subtraction</option>
                 <option value="divide">Divide</option>
+                <option value="Oand">Operator AND</option>
+                <option value="Oor">Operator OR</option>
+                <option value="Oxor">Operator XOR</option>
             </select>
             </p>
             <p id="c_cons" name="c_cons">Constante c:

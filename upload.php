@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_FILES["userImage"]["type"])){
 	$target_Algorithim = $_POST['Point_to_Point'];
 	$target_valueC = $_POST['ccons'];
 	$target_valueB = $_POST['bcons'];
-	if ($target_Algorithim=='add' or $target_Algorithim=="subtract" or $target_Algorithim=="blending" or $target_Algorithim=="divide"){
+	if ($target_Algorithim=='add' or $target_Algorithim=="subtract" or $target_Algorithim=="blending" or $target_Algorithim=="divide" or $target_Algorithim=="Oand" or $target_Algorithim=="Oor" or $target_Algorithim=="Oxor"){
 		$file1 = $_FILES["userImage1"];
 		$sourcePath1 = $file1['tmp_name'];
 		$targetPath1 = 'uploads/'.$file1['name'];
@@ -56,30 +56,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_FILES["userImage"]["type"])){
 	
 	
 	//$exe = "/opt/lampp/htdocs/proccess/".$target_Algorithim.".py";
-	$exe = "C:\\xampp\\htdocs\\programa\\".$target_Algorithim.".py";
+	$exe = "C:\\xampp\\htdocs\\proccess\\".$target_Algorithim.".py";
 	
-	$dir_file = "C:\\xampp\\htdocs\\programa\\".$targetPath;
+	$dir_file = "C:\\xampp\\htdocs\\proccess\\".$targetPath;
 	
 	//echo '<br>',$exe, '<br>';
 	//echo $dir_file, '<br>';
 	
-	if ($target_Algorithim=='add' or $target_Algorithim=="subtract" or $target_Algorithim=="blending" or $target_Algorithim=="divide"){
-		$dir_file1 = "C:\\xampp\\htdocs\\programa\\".$targetPath1;
+	$dir_python = "G:\\Anaconda\\python.exe"
+	
+	
+	if ($target_Algorithim=='add' or $target_Algorithim=="subtract" or $target_Algorithim=="Oand" or $target_Algorithim=="Oor" or $target_Algorithim=="Oxor" or $target_Algorithim=="blending" or $target_Algorithim=="divide"){
+		$dir_file1 = "C:\\xampp\\htdocs\\proccess\\".$targetPath1;
 		if($target_Algorithim=="blending"){
-			$message = exec("C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $dir_file1 $target_valueB 2>&1");
-
+			$message = exec("$dir_python $exe $dir_file $dir_file1 $target_valueB 2>&1");
 		}
 		else{
-			$message = exec("C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $dir_file1 2>&1");
+			$message = exec("$dir_python $exe $dir_file $dir_file1 2>&1");
 		}
 
-		$cmd = "<br>C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $dir_file1 2>&1";
-		echo $cmd;
+		
 	}
 	else{
-		$message = exec("C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1");
-		$cmd = "<br>C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1";
-		echo $cmd;
+		$message = exec("$dir_python $exe $dir_file $target_valueC $target_valueB 2>&1");
+		//$cmd = "<br>G:\\Anaconda\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1";
+		//echo $cmd;
 	}
 	
 	print_r($message);

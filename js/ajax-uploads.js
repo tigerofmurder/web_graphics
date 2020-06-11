@@ -55,7 +55,7 @@ $('#Point_to_Point').change(function() {
     	$("#c_cons").html('Constante C : <input type="number" id="ccons" name="ccons" value=2 step=0.001>');
         $("#b_cons").html('');
     }
-    else if(funtionID == "add" || funtionID == "subtract" || funtionID == "divide"){
+    else if(funtionID == "add" || funtionID == "subtract" || funtionID == "divide" || funtionID == "Oand" || funtionID == "Oor" || funtionID == "Oxor"){
     	$("#c_cons").html('Segunda imagen: <input type="file" name="userImage1" id="userImage1" class="user-image" required />');
         $("#b_cons").html('');
     }
