@@ -26,7 +26,7 @@ def subtract(img, img1):
     
     strr = "uploads/solution_"+str(random.random())+".jpg"
     img = cv2.subtract(img,img1)
-    #cv2.imwrite(strr,img)
+    cv2.imwrite(strr,img)
     return strr
     
 filename = sys.argv[1]

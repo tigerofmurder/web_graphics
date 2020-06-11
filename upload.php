@@ -56,28 +56,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_FILES["userImage"]["type"])){
 	
 	
 	//$exe = "/opt/lampp/htdocs/proccess/".$target_Algorithim.".py";
-	$exe = "C:\\xampp\\htdocs\\proccess\\".$target_Algorithim.".py";
+	$exe = "C:\\xampp\\htdocs\\programa\\".$target_Algorithim.".py";
 	
-	$dir_file = "C:\\xampp\\htdocs\\proccess\\".$targetPath;
+	$dir_file = "C:\\xampp\\htdocs\\programa\\".$targetPath;
 	
 	//echo '<br>',$exe, '<br>';
 	//echo $dir_file, '<br>';
 	
 	if ($target_Algorithim=='add' or $target_Algorithim=="subtract" or $target_Algorithim=="blending" or $target_Algorithim=="divide"){
-		$dir_file1 = "C:\\xampp\\htdocs\\proccess\\".$targetPath1;
+		$dir_file1 = "C:\\xampp\\htdocs\\programa\\".$targetPath1;
 		if($target_Algorithim=="blending"){
-			$message = exec("G:\\Anaconda\\python.exe '$exe' '$dir_file' '$dir_file1' '$target_valueB' 2>&1");
+			$message = exec("C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $dir_file1 $target_valueB 2>&1");
+
 		}
 		else{
-			$message = exec("G:\\Anaconda\\python.exe '$exe' '$dir_file' '$dir_file1' 2>&1");
+			$message = exec("C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $dir_file1 2>&1");
 		}
 
-		
+		$cmd = "<br>C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $dir_file1 2>&1";
+		echo $cmd;
 	}
 	else{
-		$message = exec("G:\\Anaconda\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1");
-		//$cmd = "<br>G:\\Anaconda\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1";
-		//echo $cmd;
+		$message = exec("C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1");
+		$cmd = "<br>C:\\Users\\prosp\\Anaconda3\\python.exe $exe $dir_file $target_valueC $target_valueB 2>&1";
+		echo $cmd;
 	}
 	
 	print_r($message);
