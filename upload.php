@@ -54,20 +54,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_FILES["userImage"]["type"])){
 		echo '<br><img src="uploads/histograma.png">';
 	}
 	
-	
+	$dir_proyect = "C:\\xampp\\htdocs\\proccess\\";
 	//$exe = "/opt/lampp/htdocs/proccess/".$target_Algorithim.".py";
 	$exe = "C:\\xampp\\htdocs\\proccess\\".$target_Algorithim.".py";
 	
-	$dir_file = "C:\\xampp\\htdocs\\proccess\\".$targetPath;
+	$dir_file = $dir_proyect.$targetPath;
 	
 	//echo '<br>',$exe, '<br>';
 	//echo $dir_file, '<br>';
 	
-	$dir_python = "G:\\Anaconda\\python.exe"
+	$dir_python = "G:\\Anaconda\\python.exe";
 	
 	
 	if ($target_Algorithim=='add' or $target_Algorithim=="subtract" or $target_Algorithim=="Oand" or $target_Algorithim=="Oor" or $target_Algorithim=="Oxor" or $target_Algorithim=="blending" or $target_Algorithim=="divide"){
-		$dir_file1 = "C:\\xampp\\htdocs\\proccess\\".$targetPath1;
+		$dir_file1 = $dir_proyect.$targetPath1;
 		if($target_Algorithim=="blending"){
 			$message = exec("$dir_python $exe $dir_file $dir_file1 $target_valueB 2>&1");
 		}
